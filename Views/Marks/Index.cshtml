@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<WebApplication3.Models.SubjectMarks>
+
+@{
+    ViewData["Title"] = "Submit Marks";
+}
+<h2>Submit Marks</h2>
+<form asp-action="SubmitMarks" method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Internal Max Marks</th>
+                <th>Internal Marks</th>
+                <th>Semester Max Marks</th>
+                <th>Semester Marks</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < 6; i++)
+            {
+                <tr>
+                    <td><input type="text" name="[@i].Subject" /></td>
+                    <td><input type="number" name="[@i].IntMaxMarks" /></td>
+                    <td><input type="number" name="[@i].IntMarks" /></td>
+                    <td><input type="number" name="[@i].SemMaxMarks" /></td>
+                    <td><input type="number" name="[@i].SemMarks" /></td>
+                    <td><input type="number" name="[@i].Total" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit">Submit</button>
+</form>
